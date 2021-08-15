@@ -82,3 +82,55 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+// Reduce the size and Print on A4 Sheet
+function scaleCv() {
+    document.body.classList.add('scale-cv')
+}
+
+// Return to normal size when CV is downloaded
+function removeScale() {
+    document.body.classList.remove('scale-cv')
+}
+
+// GENERATE PDF -------------
+
+// PDF generated area
+let areaCv = document.getElementById('area-cv')
+
+let resumeButton = document.getElementById('resume-button')
+
+// HTML2PDF options
+const options = {
+    margin: 0,
+    filename: 'Gino-Stoian-CV.pdf',
+    image: {
+        type: 'jpeg',
+        quality: 0.98
+    },
+    html2canvas: {
+        scale: 4
+    },
+    jsPDF: {
+        unit: 'a4',
+        orientation: 'portrait'
+    }
+}
+
+// Function to call areaCV and HTML2PDFoptions
+function generateResume() {
+    html2pdf(areaCv, options)
+}
+
+// When button is clicked, it executes three functions
+resumeButton.addEventListener('click', () => {
+    // 1. The class .scale-cv is added to the body - to reduce size of doc for print
+    scaleCv()
+
+    // 2. the pdf is generated
+    generateResume()
+
+    // 3. the .scale-cv is removed from the body after 5 seconds to return to normal size
+    setTimeout(removeScale, 5000)
+
+})
