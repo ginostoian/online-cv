@@ -434,3 +434,16 @@ img {
     visibility: visible;
     bottom: 5rem;
 }
+
+/* MEDIA QUERIES */
+    @media screen and (max-width: 320px){
+        .nav__list {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem .5rem; 
+        }
+    }
+
+/* For small devices, menu two columns */
+
+
+/* Classs modified for large screen size */
