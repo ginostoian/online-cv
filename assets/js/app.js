@@ -13,7 +13,7 @@ const showMenu = (toggleId, navId) => {
 
 showMenu('nav-toggle', 'nav-menu')
 
-// Remove Menu Mobile
+// Remove Menu When Clicked Mobile
 const navLink = document.querySelectorAll('.nav__link')
 
 function linkAction() {
@@ -42,3 +42,13 @@ function scrollActive() {
         }
     })
 }
+
+// Show Scroll Top Button
+function scrollTop() {
+    const scrollTop = document.getElementById('scroll-top')
+    // when the scroll is higher than 560 viewport height, add schow scroll class
+
+    if (this.scrollY >= 200) scrollTop.classList.add('show-scroll'); else scrollTop.classList.remove('show-scroll')
+}
+
+window.addEventListener('scroll', scrollTop)
