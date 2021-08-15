@@ -112,7 +112,7 @@ const options = {
         scale: 4
     },
     jsPDF: {
-        unit: 'a4',
+        format: 'a4',
         orientation: 'portrait'
     }
 }
